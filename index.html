@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-wrapper card rounded">
+        <form id="text-form">
+          <input
+            class="hidden"
+            checked
+            type="radio"
+            name="input-mode"
+            value="text"
+            id="write-mode"
+          />
+          <input
+            class="hidden"
+            type="radio"
+            name="input-mode"
+            value="file"
+            id="upload-mode"
+          />
+          <div class="form-mode-select">
+            <label tabindex="0" for="write-mode" class="mode-input-label button"
+              >Write text </label
+            ><label
+              tabindex="0"
+              for="upload-mode"
+              class="mode-input-label button"
+              >Upload file</label
+            >
+          </div>
+          <textarea
+            name="text"
+            id="text-input"
+            class="text-input input-field"
+            placeholder="Enter your text here"
+          ></textarea>
+          <label
+            tabindex="0"
+            for="file-input"
+            class="file-input-wrapper input-field"
+          >
+            <div class="file-input-instruction">
+              <img
+                class="file-input-icon"
+                src="./assets/icons/folder.png"
+                alt=""
+              />
+              <span>Click or drag your files here</span>
+              <span id="filename"></span>
+            </div>
+            <input class="file-input" type="file" name="file" id="file-input" />
+          </label>
+          <button class="button submit-button" type="submit">Countinue</button>
+        </form>
+      </div>
+    </div>
+    <script src="./scripts/page-scripts/index.js" type="module"></script>
+  </body>
+</html>

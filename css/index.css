@@ -1,0 +1,113 @@
+.text-input {
+  width: 100%;
+  height: 400px;
+  resize: none;
+  padding: 20px;
+  display: block;
+}
+
+.file-input-wrapper {
+  width: 100%;
+  height: 400px;
+  display: block;
+}
+
+.input-field {
+  margin-top: 15px;
+  background-image: linear-gradient(#fff, #f5f5fa);
+  border: 1px solid #000;
+  border-radius: 4px;
+}
+
+.file-input {
+  display: none;
+}
+
+.file-input-instruction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.file-input-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.file-input-wrapper:hover .file-input-icon, .file-input-wrapper:focus .file-input-icon {
+  scale: 1.1;
+}
+
+.file-input-icon {
+  width: 5rem;
+  transition: 0.3s;
+}
+
+[for=write-mode]::after {
+  background-image: url(../assets//icons/pen.png);
+}
+
+[for=upload-mode]::after {
+  background-image: url(../assets//icons/text.png);
+}
+
+#write-mode:not(:checked) ~ #text-input {
+  display: none;
+}
+
+#upload-mode:not(:checked) ~ .file-input-wrapper {
+  display: none;
+}
+
+.form-mode-select {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.mode-input-label {
+  display: flex;
+  align-items: center;
+}
+.mode-input-label::after {
+  content: "";
+  margin-left: 5px;
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.mode-input-label:focus::after, .mode-input-label:hover::after {
+  animation: shake 1s 1 alternate;
+}
+
+.submit-button {
+  margin-inline: auto;
+  margin-top: 2rem;
+  display: block;
+}
+
+@keyframes shake {
+  0% {
+    rotate: 0deg;
+  }
+  20% {
+    rotate: 10deg;
+  }
+  50% {
+    rotate: -10deg;
+  }
+  70% {
+    rotate: 5deg;
+  }
+  90% {
+    rotate: -5deg;
+  }
+  100% {
+    rotate: 0deg;
+  }
+}/*# sourceMappingURL=index.css.map */

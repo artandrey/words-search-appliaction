@@ -1,0 +1,18 @@
+.search-layout {
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+}
+
+.left-section {
+  flex-basis: 300px;
+}
+
+.right-section {
+  flex: 1 0;
+}
+
+.search-form {
+  display: flex;
+  gap: 1rem;
+}/*# sourceMappingURL=search-page.css.map */

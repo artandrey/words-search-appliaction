@@ -1,0 +1,48 @@
+.search-layout {
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+}
+
+.left-section {
+  flex-basis: 300px;
+}
+
+.right-section {
+  flex: 1 0;
+}
+
+.search-form {
+  display: flex;
+  gap: 1rem;
+}
+
+// table {
+//   border-collapse: collapse;
+//   width: 100%;
+//   max-width: 800px;
+//   margin: 0 auto;
+//   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+//   border-radius: 10px;
+// }
+
+// thead {
+//   background: linear-gradient(to bottom, #f2f2f2, #e1e1e1);
+//   color: #666;
+//   font-weight: bold;
+// }
+
+// th,
+// td {
+//   padding: 10px 20px;
+//   text-align: left;
+//   border-bottom: 1px solid #ddd;
+// }
+
+// tr:hover {
+//   background-color: #f5f5f5;
+// }
+
+// tbody tr:nth-child(even) {
+//   background-color: #f2f2f2;
+// }
