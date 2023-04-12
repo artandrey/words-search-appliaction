@@ -78,7 +78,7 @@ class UserInputForm extends FormComponent {
 
     textShareService.saveText(text);
 
-    redirection('/search-page.html');
+    redirection('./search-page.html');
   }
 
   #convertFileToText(file) {
