@@ -10,7 +10,9 @@ class ObservableInput extends Component {
   onValueInput(value) {}
 
   #handleInput(event) {
-    this.onValueInput(event.target.value);
+    const { trim } = this.options;
+    const value = event.target.value;
+    this.onValueInput(trim ? value.trim() : value);
   }
 
   setInputValue(value, silent = false) {

@@ -41,7 +41,7 @@
   $item-height: 48px;
   $items-shown: 5;
   $gap: 4px;
-  padding-right: 0.4rem;
+  padding: 0.4rem;
   list-style: none;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -49,12 +49,7 @@
   max-height: ($item-height + $gap) * $items-shown;
   overflow: auto;
 
-  scroll-snap-type: y mandatory;
   .suggestion-item {
-    padding: 0 1rem;
-    height: $item-height;
-    display: flex;
-    align-items: center;
     background-image: linear-gradient(#fff, #f5f5fa);
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -63,8 +58,14 @@
     color: #525252;
     font-weight: 600;
   }
-  .suggestion-item,
+
   label {
+    padding: 0 1rem;
+    width: 100%;
+    height: $item-height;
+    display: flex;
+    outline-offset: 0;
+    align-items: center;
     cursor: pointer;
   }
 }

@@ -21,8 +21,6 @@ if (!textShareService.isTextAvailable()) {
 
 const textProsessor = new TextProcessor(textShareService.getText());
 
-console.log(textProsessor.splitByWordIncludingIt('cs'));
-
 class TextComponentWithMarkFunctionality extends Component {
   #markWord = null;
   #text = null;
@@ -160,7 +158,9 @@ class InputWithSuggestions {
   #input;
   #suggestionsList;
   constructor(inputId, suggestionListId, { suggestions = [] }) {
-    this.#input = new ObservableInput(inputId);
+    this.#input = new ObservableInput(inputId, {
+      trim: true,
+    });
     this.#suggestionsList = new SuggestionsList(suggestionListId, {
       suggestions,
     });

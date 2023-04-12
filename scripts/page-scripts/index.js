@@ -107,10 +107,6 @@ class FileInput extends Component {
   }
 
   #handleFileDroped(fileList) {
-    this.#onFileSelect(fileList);
-  }
-
-  #onFileSelect(fileList) {
     this.element.files = fileList;
     const file = fileList[0];
     this.indicationTextComponent.setFileInfo(file.name, file.size);
@@ -122,6 +118,7 @@ class FileInput extends Component {
       this.indicationTextComponent.resetFileInfo();
       return;
     }
+    this.indicationTextComponent.setFileInfo(file.name, file.size);
   }
 }
 
