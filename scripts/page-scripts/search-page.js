@@ -16,7 +16,7 @@ addEnterInteractionForTabindexedLabels();
 const textShareService = new CrossWindowTextShareService('value');
 
 if (!textShareService.isTextAvailable()) {
-  redirection('./');
+  redirection('../');
 }
 
 const textProsessor = new TextProcessor(textShareService.getText());
