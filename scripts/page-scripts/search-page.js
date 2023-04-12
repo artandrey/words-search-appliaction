@@ -160,17 +160,27 @@ class InputWithSuggestions {
   #input;
   #suggestionsList;
   constructor(inputId, suggestionListId, { suggestions = [] }) {
+    new Audio('../../assets/audio/tube-audio.mp3');
     this.#input = new ObservableInput(inputId);
     this.#suggestionsList = new SuggestionsList(suggestionListId, {
       suggestions,
     });
 
-    this.#input.onValueInput = debounce(this.search.bind(this), 250);
+    this.#input.onValueInput = this.#handleInput.bind(this);
+    this.search = debounce(this.search.bind(this), 250);
     this.#suggestionsList.onSuggesionSelect = (value) => {
       this.#input.setInputValue(value, true);
       this.#suggestionsList.setSearchQuery(null);
       this.#input.element.focus();
     };
+  }
+
+  #handleInput(value) {
+    const audio = new Audio('../../assets/audio/tube-audio.mp3');
+    audio.volume = 0.4;
+    audio.currentTime = 0;
+    audio.play();
+    this.search(value);
   }
 
   search(value) {
