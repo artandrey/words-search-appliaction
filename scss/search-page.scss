@@ -1,5 +1,8 @@
+@import './mixins.scss';
+
 .search-layout {
   width: 100%;
+  max-height: 700px;
   display: flex;
   gap: 2rem;
 }
@@ -10,6 +13,8 @@
 
 .right-section {
   flex: 1 0;
+  display: grid;
+  grid-template-rows: repeat(auto-fit, minmax(0, auto));
 }
 
 .search-form {
@@ -17,32 +22,139 @@
   gap: 1rem;
 }
 
-// table {
-//   border-collapse: collapse;
-//   width: 100%;
-//   max-width: 800px;
-//   margin: 0 auto;
-//   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-//   border-radius: 10px;
-// }
+.search-input-form {
+  position: relative;
+}
 
-// thead {
-//   background: linear-gradient(to bottom, #f2f2f2, #e1e1e1);
-//   color: #666;
-//   font-weight: bold;
-// }
+.suggestions-list-wrapper {
+  margin-top: 1rem;
+  padding: 14px;
+  position: absolute;
+  background-color: #f5f5f5;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(0);
+  opacity: 1;
+  transition: transform 0.25s, opacity 0.2s;
+}
 
-// th,
-// td {
-//   padding: 10px 20px;
-//   text-align: left;
-//   border-bottom: 1px solid #ddd;
-// }
+.suggestions-list {
+  $item-height: 48px;
+  $items-shown: 5;
+  $gap: 4px;
+  padding-right: 0.4rem;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: $gap;
+  max-height: ($item-height + $gap) * $items-shown;
+  overflow: auto;
 
-// tr:hover {
-//   background-color: #f5f5f5;
-// }
+  scroll-snap-type: y mandatory;
+  .suggestion-item {
+    padding: 0 1rem;
+    height: $item-height;
+    display: flex;
+    align-items: center;
+    background-image: linear-gradient(#fff, #f5f5fa);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease-in-out;
+    color: #525252;
+    font-weight: 600;
+  }
+  .suggestion-item,
+  label {
+    cursor: pointer;
+  }
+}
 
-// tbody tr:nth-child(even) {
-//   background-color: #f2f2f2;
-// }
+.suggestions-list-wrapper:has(.suggestions-list:empty) {
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+.words-count-table {
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+
+  thead {
+    background: linear-gradient(to bottom, #f2f2f2, #e1e1e1);
+    color: #666;
+    font-weight: bold;
+  }
+
+  tbody {
+    display: block;
+    overflow: auto;
+    max-height: 600px;
+    @include light-scrollbar();
+  }
+
+  tr {
+    display: grid;
+    grid-template-columns: 160px auto;
+  }
+
+  th,
+  td {
+    padding: 10px 20px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    background-image: linear-gradient(#fff, #f5f5fa);
+    border: none;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    padding: 0.8rem;
+    font-weight: 600;
+    &:first-child {
+      border-radius: 5px 0 0 5px;
+    }
+    &:last-child {
+      border-radius: 0 5px 5px 0;
+    }
+  }
+}
+
+.text-wrapper {
+  margin-top: 20px;
+}
+
+.text-content {
+  height: 100%;
+  @include light-scrollbar();
+  overflow: auto;
+  padding-right: 0.8rem;
+  p {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    line-height: 1.4;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  mark {
+    background: transparent;
+    background-image: linear-gradient(0, #5a5e9a, #7c80bb);
+    background-repeat: no-repeat;
+    animation: marked-word-appearence 0.3s both ease-in-out;
+  }
+}
+
+@keyframes marked-word-appearence {
+  0% {
+    background-position: 0 1em;
+    color: inherit;
+  }
+  100% {
+    background-position: 0 0;
+    color: #f2f2f2;
+  }
+}

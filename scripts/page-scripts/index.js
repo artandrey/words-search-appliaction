@@ -25,25 +25,23 @@ class FileIndicationText extends Component {
 
   #updateFileInformation() {
     this.element.textContent = this.#fileInformation
-      ? `File ${this.#fileInformation.name} selected (${
-          this.#fileInformation.size
-        }bite)`
+      ? `File ${this.#fileInformation.name} selected (${this.#fileInformation.size}bite)`
       : 'Nothing selected';
   }
 }
 
 class FileInput extends Component {
   constructor(id, options) {
-    const { indicationId } = options;
-    super(id);
+    super(id, options);
+
+    const { indicationId } = this.options;
     this.indicationTextComponent = new FileIndicationText(indicationId);
     this.element.addEventListener('change', this.#handleChange.bind(this));
     window.addEventListener(
       'load',
       () => {
         const file = this.element.files[0];
-        if (file)
-          this.indicationTextComponent.setFileInfo(file.name, file.size);
+        if (file) this.indicationTextComponent.setFileInfo(file.name, file.size);
       },
       { once: true }
     );
@@ -83,7 +81,7 @@ class UserInputForm extends FormComponent {
     redirection('/search-page.html');
   }
 
-  async #convertFileToText(file) {
+  #convertFileToText(file) {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
       reader.onload = (event) => {

@@ -12,17 +12,10 @@
     <div class="container">
       <div class="search-layout">
         <div class="left-section card rounded">
-          <table class="words-count-table" id="words-count-table">
-            <thead>
-              <tr>
-                <td>Word</td>
-                <td>Count</td>
-              </tr>
-            </thead>
-          </table>
+          <div class="words-count-table" id="words-count-table"></div>
         </div>
-        <div class="right-section card rounded">
-          <div class="serach-form-wrapper">
+        <div class="right-section">
+          <div class="serach-form-wrapper card rounded">
             <div class="search-input-wrapper">
               <form class="search-form" id="search-form">
                 <input
@@ -34,15 +27,15 @@
                   id="search-input"
                   placeholder="Searched word"
                 />
-                <button class="button" type="submit" id="submit-button">
-                  Search
-                </button>
+                <button class="button" type="submit" id="submit-button">Search</button>
               </form>
-              <ul class="suggestions-list" id="suggestions-list"></ul>
+              <div class="suggestions-list-wrapper rounded">
+                <ul class="suggestions-list light-scrollbar" id="suggestions-list"></ul>
+              </div>
             </div>
           </div>
-          <div class="text-wrapper">
-            <p class="text-content" id="text-content"></p>
+          <div class="text-wrapper card rounded">
+            <div class="text-content" id="text-content"></div>
           </div>
         </div>
       </div>

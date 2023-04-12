@@ -1,3 +1,3 @@
-const redirection = href => window.location.href = href;
+const redirection = (href) => (window.location.href = href);
 
 export default redirection;
