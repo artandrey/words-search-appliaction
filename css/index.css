@@ -18,6 +18,9 @@
   border: 1px solid #000;
   border-radius: 4px;
 }
+.input-field.active .file-input-icon {
+  scale: 1.4;
+}
 
 .file-input {
   display: none;
@@ -28,6 +31,7 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  pointer-events: none;
 }
 
 .file-input-wrapper {
