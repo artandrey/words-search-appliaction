@@ -14,7 +14,7 @@ class TextProcessor {
 
   getWords() {
     const wordRegex = new RegExp(
-      `(?<=${TextProcessor.ACCEPTEBLE_CHARACTERS}|^)[\\p{L}']{2,}(?=${TextProcessor.ACCEPTEBLE_CHARACTERS}|$)`,
+      `(?<=${TextProcessor.ACCEPTEBLE_CHARACTERS}|^)[\\p{L}'\-]{2,}(?=${TextProcessor.ACCEPTEBLE_CHARACTERS}|$)`,
       'gui'
     );
     const mathcedStrings = this.#text.match(wordRegex);

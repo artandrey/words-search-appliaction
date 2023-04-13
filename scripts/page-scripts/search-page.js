@@ -42,6 +42,7 @@ class TextComponentWithMarkFunctionality extends Component {
   }
 
   #createMarkedTextMarkup(text, markWord) {
+    console.log(new TextProcessor(text).splitByWordIncludingIt(markWord));
     return oddEvenMap(new TextProcessor(text).splitByWordIncludingIt(markWord), (paragraphPart, isOdd) =>
       isOdd
         ? paragraphPart
@@ -182,7 +183,7 @@ class WordsCountTable extends TableComponent {
   constructor(id, wordsCount) {
     super(id, {
       heading: ['Words', 'Count'],
-      rows: Object.entries(wordsCount),
+      rows: Object.entries(wordsCount).sort((a, b) => b[1] - a[1]),
     });
   }
 }
